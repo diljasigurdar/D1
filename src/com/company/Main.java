@@ -13,7 +13,6 @@ public class Main {
         unitTest(N, T);
     }
 
-
     public static void unitTest(int N, int T){
         Stopwatch timer = new Stopwatch();
         N = couponCollectorTest(N);
