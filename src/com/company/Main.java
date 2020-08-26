@@ -1,9 +1,6 @@
 package com.company;
 
-import edu.princeton.cs.algs4.BinaryIn;
-import edu.princeton.cs.algs4.BinaryInsertion;
-import edu.princeton.cs.algs4.Quick;
-import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.*;
 
 import java.util.Random;
 
