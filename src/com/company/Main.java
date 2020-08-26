@@ -7,7 +7,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        int N = 1000;
+        int N = 100000;
         N = couponCollectorTest(N);
         StdOut.println(N + " numbers were generated in the process.");
         long stopTime = System.nanoTime();
@@ -15,7 +15,7 @@ public class Main {
     }
 
     public static int couponCollectorTest(int N){
-        // Get random integer until we get all of N and than print out total times of random integers
+        // Get random integer until we get all of N and than print out total times of random integers.
         int counter = 0;
         int index = 0;
         int[] myNum = new int[N];
@@ -23,7 +23,7 @@ public class Main {
         while (index <= N){
             int x = getRandomNumber(N);
             counter++;
-            if (myNum[x] == 0) {
+            if (myNum[x] == 0) {    // Check if we have already collected the number.
                 myNum[x] = x;
                 index++;
             }
@@ -32,6 +32,7 @@ public class Main {
     }
 
     public static int getRandomNumber(int N){
+        // Get Random number and return it.
         Random rand = new Random();
         return rand.nextInt(N);
     }
