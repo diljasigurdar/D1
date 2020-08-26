@@ -63,12 +63,14 @@ public class Main {
         }
         public static double mean(double[] timeList) {
             //Tekur saman tímana sem hver tilraun tók og prentar meðaltal.
+            // Takes timeList in as a parameter and calculates average time
             double mean = StdStats.mean(timeList);
             StdOut.println("Mean: " + mean);
             return 0;
         }
         public static double stddev(double[] timeList) {
             //Tekur saman tímana sem hver tilraun tók og prentar standard deviations.
+            // Takes timeList in as a parameter and calculates the standar deviations.
             double derivation = StdStats.stddev(timeList);
             StdOut.println("Stddev: " + derivation);
             return 0;
