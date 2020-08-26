@@ -1,41 +1,41 @@
 package com.company;
 
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int N = 10;
-        StdOut.println(N);
+        long startTime = System.nanoTime();
+        int N = 1000;
         N = couponCollectorTest(N);
-        StdOut.println(N);
+        StdOut.println(N + " numbers were generated in the process.");
+        long stopTime = System.nanoTime();
+        StdOut.println(stopTime - startTime + " Nano Seconds.");
     }
 
     public static int couponCollectorTest(int N){
+        // Get random integer until we get all of N and than print out total times of random integers
         int counter = 0;
-        //Býr til random tölur 0-N þangað til allar tölur hafa komið upp OG prentar út hversu margar tölur í heildina voru búnar til í ferlinu.
-        N = N + 1;
-        String[] test;
-        test = new String[N];
-        for (int i = 0; i<N; i++){
+        int index = 0;
+        int[] myNum = new int[N];
+
+        while (index <= N){
             int x = getRandomNumber(N);
             counter++;
-            test[i] = String.valueOf(x);
-            StdOut.println(test[i]);
+            if (myNum[x] == 0) {
+                myNum[x] = x;
+                index++;
+            }
         }
-        for (int i = 0; i<N; i++){
-            StdOut.println(test[i]);
-        }
-        StdOut.println("after sorting");
-        StdOut.println(counter);
-        return N;
+        return counter;
     }
 
     public static int getRandomNumber(int N){
         Random rand = new Random();
         return rand.nextInt(N);
     }
+
 
     void CouponCollectorStats(int N, int T){
         //Smiðurinn kallar í couponCollectorTest(int N) og gerir T-tilraunir - hver tilraun inniheldur N-cards
