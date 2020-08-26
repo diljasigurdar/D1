@@ -9,15 +9,16 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         int N = 1000000;
-        int T = 10;
+        int T = 3;
         unitTest(N, T);
     }
 
 
     public static void unitTest(int N, int T){
+        int numbersGenerated = 0;
         Stopwatch timer = new Stopwatch();
-        N = couponCollectorTest(N);
-        StdOut.println(N + " numbers were generated in the process.");
+        numbersGenerated = couponCollectorTest(N);
+        StdOut.println(numbersGenerated + " numbers were generated in the process.");
         double stopTime = timer.elapsedTime();
         StdOut.println(stopTime + " Seconds.");
         CouponCollectorStats stats = new CouponCollectorStats(N, T);
