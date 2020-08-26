@@ -37,7 +37,6 @@ public class Main {
         return rand.nextInt(N);
     }
 
-
     void CouponCollectorStats(int N, int T){
         //Smiðurinn kallar í couponCollectorTest(int N) og gerir T-tilraunir - hver tilraun inniheldur N-cards
     }
@@ -48,6 +47,5 @@ public class Main {
 
     void stddev(){
         //Tekur saman tímana sem hver tilraun tók og prentar standard deviations.
-
     }
 }
