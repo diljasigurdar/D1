@@ -1,25 +1,27 @@
 package com.company;
 
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 import edu.princeton.cs.algs4.Stopwatch;
 
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int N = 10000;
-        int T = 3;
+        int N = 1000000;
+        int T = 10;
         unitTest(N, T);
     }
 
     public static void unitTest(int N, int T){
         int counter = 0;
+        StdOut.println("N = " + N + "\n");
         Stopwatch timer = new Stopwatch();
         counter = couponCollectorTest(N);
         StdOut.println(counter + " numbers were generated in the process.");
         double stopTime = timer.elapsedTime();
-        StdOut.println(stopTime + " Seconds.");
+        StdOut.println(stopTime + " seconds. \n");
+        StdOut.println("N = " + N + " T = " + T + "\n");
         CouponCollectorStats stats = new CouponCollectorStats(N, T);
     }
 
@@ -42,8 +44,9 @@ public class Main {
 
     public static int getRandomNumber(int N){
         // Get Random number and return it.
-        Random rand = new Random();
-        return rand.nextInt(N);
+        //Random rand = new Random();
+        int rand = StdRandom.uniform(0, N);
+        return rand; //.nextInt(N);
     }
 
     public static class CouponCollectorStats  {
@@ -59,10 +62,10 @@ public class Main {
                 counter++;
             }
             double meanTime = mean(timeList);
-            StdOut.println("Mean: " + meanTime);
+            StdOut.println("Mean: " + meanTime + " seconds.");
 
             double deviationTime = stddev(timeList);
-            StdOut.println("Standard deviation: " + deviationTime);
+            StdOut.println("Standard deviation: " + deviationTime + " seconds.");
 
         }
         public static double mean(double[] timeList) {

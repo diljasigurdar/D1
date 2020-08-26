@@ -6,4 +6,5 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-**/.idea/workspace.xml **/.idea/tasks.xml **/.idea/libraries/algs4.xml
+**/.idea/workspace.xml **/.idea/tasks.xml
+**/.idea/libraries/algs4.xml
