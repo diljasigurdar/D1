@@ -1,17 +1,26 @@
 package com.company;
 
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdStats;
+import edu.princeton.cs.algs4.Stopwatch;
 
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        long startTime = System.nanoTime();
-        int N = 100000;
+        int N = 1000000;
+        int T = 10;
+        unitTest(N, T);
+    }
+
+
+    public static void unitTest(int N, int T){
+        Stopwatch timer = new Stopwatch();
         N = couponCollectorTest(N);
         StdOut.println(N + " numbers were generated in the process.");
-        long stopTime = System.nanoTime();
-        StdOut.println(stopTime - startTime + " Nano Seconds.");
+        double stopTime = timer.elapsedTime();
+        StdOut.println(stopTime + " Seconds.");
+        CouponCollectorStats stats = new CouponCollectorStats(N, T);
     }
 
     public static int couponCollectorTest(int N){
@@ -37,17 +46,32 @@ public class Main {
         return rand.nextInt(N);
     }
 
-
-    void CouponCollectorStats(int N, int T){
-        //Smiðurinn kallar í couponCollectorTest(int N) og gerir T-tilraunir - hver tilraun inniheldur N-cards
-    }
-
-    void mean(){
-        //Tekur saman tímana sem hver tilraun tók og prentar meðaltal.
-    }
-
-    void stddev(){
-        //Tekur saman tímana sem hver tilraun tók og prentar standard deviations.
-
+    public static class CouponCollectorStats  {
+        public CouponCollectorStats(int N, int T) {
+            //Smiðurinn kallar í couponCollectorTest(int N) og gerir T-tilraunir - hver tilraun inniheldur N-cards
+            double[] timeList = new double[T];
+            int counter = 0;
+            while (counter < T){
+                Stopwatch timer = new Stopwatch();
+                couponCollectorTest(N);
+                double totalTime = timer.elapsedTime();
+                timeList[counter] = totalTime;
+                counter++;
+            }
+            mean(timeList);
+            stddev(timeList);
+        }
+        public static double mean(double[] timeList) {
+            //Tekur saman tímana sem hver tilraun tók og prentar meðaltal.
+            double mean = StdStats.mean(timeList);
+            StdOut.println("Mean: " + mean);
+            return 0;
+        }
+        public static double stddev(double[] timeList) {
+            //Tekur saman tímana sem hver tilraun tók og prentar standard deviations.
+            double derivation = StdStats.stddev(timeList);
+            StdOut.println("Stddev: " + derivation);
+            return 0;
+        }
     }
 }
