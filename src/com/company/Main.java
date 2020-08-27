@@ -46,9 +46,8 @@ public class Main {
 
     public static int getRandomNumber(int N){
         // Get Random number and return it.
-        //Random rand = new Random();
         int rand = StdRandom.uniform(0, N);
-        return rand; //.nextInt(N);
+        return rand;
     }
 
     public static class CouponCollectorStats  {
