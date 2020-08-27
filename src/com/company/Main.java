@@ -9,7 +9,7 @@ import edu.princeton.cs.algs4.Stopwatch;
 public class Main {
     public static void main(String[] args) {
         int N = 1000000;
-        int[] T = {10, 100, 1000};
+        int[] T = {10, 100};
         unitTest(N, T);
     }
 
@@ -23,7 +23,7 @@ public class Main {
         //StdOut.println(stopTime + " seconds. \n");
         for (int i = 0; i < T.length; i++){
             StdOut.println("N = " + N + " T = " + T[i] + "\n");
-            CouponCollectorStats stats = new CouponCollectorStats(N, T[i]);
+            CouponCollectorStats(N, T[i]);
         }
     }
 
@@ -46,40 +46,37 @@ public class Main {
 
     public static int getRandomNumber(int N){
         // Get Random number and return it.
-        //Random rand = new Random();
         int rand = StdRandom.uniform(0, N);
-        return rand; //.nextInt(N);
+        return rand;
     }
 
-    public static class CouponCollectorStats  {
-        public CouponCollectorStats(int N, int T) {
-            //This method calls couponCollectorTest(int N) method T many times.
-            double[] timeList = new double[T];
-            int counter = 0;
-            while (counter < T){
-                Stopwatch timer = new Stopwatch();
-                couponCollectorTest(N);
-                double totalTime = timer.elapsedTime();
-                timeList[counter] = totalTime;
-                counter++;
-            }
-
-            double meanTime = mean(timeList);
-            StdOut.println("Mean: " + meanTime + " seconds.");
-
-            double deviationTime = stddev(timeList);
-            StdOut.println("Standard deviation: " + deviationTime + " seconds." + "\n");
-
+    public static void CouponCollectorStats(int N, int T) {
+        //This method calls couponCollectorTest(int N) method T many times.
+        double[] timeList = new double[T];
+        int counter = 0;
+        while (counter < T){
+            Stopwatch timer = new Stopwatch();
+            couponCollectorTest(N);
+            double totalTime = timer.elapsedTime();
+            timeList[counter] = totalTime;
+            counter++;
         }
-        public static double mean(double[] timeList) {
-            // Takes timeList in as a parameter and calculates average time
-            double mean = StdStats.mean(timeList);
-            return mean;
-        }
-        public static double stddev(double[] timeList) {
-            // Takes timeList in as a parameter and calculates the standard deviations.
-            double deviation = StdStats.stddev(timeList);
-            return deviation;
-        }
+
+        double meanTime = mean(timeList);
+        StdOut.println("Mean: " + meanTime + " seconds.");
+
+        double deviationTime = stddev(timeList);
+        StdOut.println("Standard deviation: " + deviationTime + " seconds." + "\n");
+
+    }
+    public static double mean(double[] timeList) {
+        // Takes timeList in as a parameter and calculates average time
+        double mean = StdStats.mean(timeList);
+        return mean;
+    }
+    public static double stddev(double[] timeList) {
+        // Takes timeList in as a parameter and calculates the standard deviations.
+        double deviation = StdStats.stddev(timeList);
+        return deviation;
     }
 }
