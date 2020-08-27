@@ -1,0 +1,14 @@
+N = 1000000 T = 10
+
+Mean: 0.26780000000000004 seconds.
+Standard deviation: 0.0930672397308049 seconds.
+
+N = 1000000 T = 100
+
+Mean: 0.20831000000000008 seconds.
+Standard deviation: 0.01985690984737728 seconds.
+
+N = 1000000 T = 1000
+
+Mean: 0.21380699999999983 seconds.
+Standard deviation: 0.0380655847155898 seconds.
