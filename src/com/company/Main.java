@@ -10,17 +10,21 @@ public class Main {
     public static void main(String[] args) {
         int N = 1000000;
         int[] T = {10, 100};
-        unitTest(N, T);
+        unitTestA(N);
+        unitTestC(N, T);
     }
 
-    public static void unitTest(int N, int[] T){
-        //int counter = 0;
-        //StdOut.println("N = " + N + "\n");
-        //Stopwatch timer = new Stopwatch();
-        //counter = couponCollectorTest(N);
-        //StdOut.println(counter + " numbers were generated in the process.");
-        //double stopTime = timer.elapsedTime();
-        //StdOut.println(stopTime + " seconds. \n");
+    public static void unitTestA(int N){
+        int counter = 0;
+        StdOut.println("N = " + N + "\n");
+        Stopwatch timer = new Stopwatch();
+        counter = couponCollectorTest(N);
+        StdOut.println(counter + " numbers were generated in the process.");
+        double stopTime = timer.elapsedTime();
+        StdOut.println(stopTime + " seconds. \n");
+    }
+
+    public static void unitTestC(int N, int[] T){
         for (int i = 0; i < T.length; i++){
             StdOut.println("N = " + N + " T = " + T[i] + "\n");
             CouponCollectorStats(N, T[i]);
@@ -71,12 +75,10 @@ public class Main {
     }
     public static double mean(double[] timeList) {
         // Takes timeList in as a parameter and calculates average time
-        double mean = StdStats.mean(timeList);
-        return mean;
+        return StdStats.mean(timeList);
     }
     public static double stddev(double[] timeList) {
         // Takes timeList in as a parameter and calculates the standard deviations.
-        double deviation = StdStats.stddev(timeList);
-        return deviation;
+        return StdStats.stddev(timeList);
     }
 }
