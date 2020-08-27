@@ -9,20 +9,22 @@ import edu.princeton.cs.algs4.Stopwatch;
 public class Main {
     public static void main(String[] args) {
         int N = 1000000;
-        int T = 10;
+        int[] T = {10, 100, 1000};
         unitTest(N, T);
     }
 
-    public static void unitTest(int N, int T){
-        int counter = 0;
-        StdOut.println("N = " + N + "\n");
-        Stopwatch timer = new Stopwatch();
-        counter = couponCollectorTest(N);
-        StdOut.println(counter + " numbers were generated in the process.");
-        double stopTime = timer.elapsedTime();
-        StdOut.println(stopTime + " seconds. \n");
-        StdOut.println("N = " + N + " T = " + T + "\n");
-        CouponCollectorStats stats = new CouponCollectorStats(N, T);
+    public static void unitTest(int N, int[] T){
+        //int counter = 0;
+        //StdOut.println("N = " + N + "\n");
+        //Stopwatch timer = new Stopwatch();
+        //counter = couponCollectorTest(N);
+        //StdOut.println(counter + " numbers were generated in the process.");
+        //double stopTime = timer.elapsedTime();
+        //StdOut.println(stopTime + " seconds. \n");
+        for (int i = 0; i < T.length; i++){
+            StdOut.println("N = " + N + " T = " + T[i] + "\n");
+            CouponCollectorStats stats = new CouponCollectorStats(N, T[i]);
+        }
     }
 
     public static int couponCollectorTest(int N){
@@ -61,11 +63,12 @@ public class Main {
                 timeList[counter] = totalTime;
                 counter++;
             }
+
             double meanTime = mean(timeList);
             StdOut.println("Mean: " + meanTime + " seconds.");
 
             double deviationTime = stddev(timeList);
-            StdOut.println("Standard deviation: " + deviationTime + " seconds.");
+            StdOut.println("Standard deviation: " + deviationTime + " seconds." + "\n");
 
         }
         public static double mean(double[] timeList) {
@@ -78,6 +81,5 @@ public class Main {
             double deviation = StdStats.stddev(timeList);
             return deviation;
         }
-
     }
 }
